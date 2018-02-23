@@ -1,0 +1,59 @@
+/* Add a default text and element center alignment. */
+* {
+    text-align: center;
+    margin: auto 0;
+}
+
+/* Page padding + background image. */
+body {
+    padding: 50px;
+    background-image: url('../img/restaurant/restaurant.png');
+}
+
+/* Make the label for adding a burger bold. */
+.label {
+    font-weight: bold;
+}
+
+/* Override default ul padding. */
+ul {
+    padding: 0;
+}
+
+/* Input for adding new burgers. */
+.form-control {
+    width: 400px;
+    max-width: 100%;
+    margin: auto;
+}
+
+/* Holds each burger item. */
+.holder {
+    padding: 5px;
+    margin: 10px auto;
+    max-width: 100%;
+    width: 400px;
+    height: auto;
+    border: 2px solid rgba(255, 255, 255, .2);
+    border-radius: 5px;
+    background-color: rgba(255, 255, 255, .4);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    overflow: hidden;
+}
+
+/* Reduce margin on h4 tags. */
+h4 {
+    margin: 2px;
+}
+
+/* Push burger image down from the top of its column.*/
+img {
+    margin-top: 40px;
+}
+
+/* Margin below add burger form. Only noticeable when screen size is xs and so the three columns stack. */
+.add-form {
+    margin-bottom: 40px;
+}
