@@ -25,64 +25,72 @@
 	</div>
 </div>
 <div class="row" id="movies-container">
-<!--movie box -->
+	<!--movie box -->
 	<div class="col-lg-2 col-md-3 col-sm-6 col-xs-12" id="movie-box">
-        <div>
-			<img class="img-responsive" id="new-movies" src="http://imgs.abduzeedo.com/files/articles/tarantino/planet_terror_poster_01.jpg">
-		</div>
-	</div>
-	<div class="col-lg-2 col-md-3 col-sm-6 col-xs-12" id="movie-box">
-        <div>
-			<img class="img-responsive" id="new-movies" src="https://i.pinimg.com/originals/8f/ee/b3/8feeb324e9af72689458ab84f38c8a54.jpg">
-		</div>
-	</div>
-	<div class="col-lg-2 col-md-3 col-sm-6 col-xs-12" id="movie-box">
-        <div>
-			<img class="img-responsive" id="new-movies" src="https://d1466nnw0ex81e.cloudfront.net/n_iv/600/796139.jpg">
-		</div>
-	</div>
-	<div class="col-lg-2 col-md-3 col-sm-6 col-xs-12" id="movie-box">
-        <div>
-			<img class="img-responsive" id="new-movies" src="https://slackershack.files.wordpress.com/2013/01/django2.jpg">
-		</div>
-		
-	</div>
-	<div class="col-lg-2 col-md-3 col-sm-6 col-xs-12" id="movie-box">
-        <div>
-			<img class="img-responsive" id="new-movies" src="https://images-na.ssl-images-amazon.com/images/M/MV5BYTdmZmY3Y2QtNjU5NC00OGUxLTg3MWQtMmE2ODM5Mzg3MzcyL2ltYWdlL2ltYWdlXkEyXkFqcGdeQXVyNTAyODkwOQ@@._V1_SY1000_CR0,0,706,1000_AL_.jpg">
-		</div>
-	</div>
-	<div class="col-lg-2 col-md-3 col-sm-6 col-xs-12" id="movie-box">
-        <div>
-			<img class="img-responsive" id="new-movies" src="https://i.pinimg.com/736x/f9/ed/07/f9ed0797e42b61d40ef87e6e025e1eb2--quentin-tarantino-pulp-fiction.jpg">
-		</div>
-	</div>
+        <div class="box gallery">
+			<div class="card">
+    			
+      			<img class="img-responsive" id="new-movies" src="https://image.tmdb.org/t/p/w600_and_h900_bestv2/7Yjzttt0VfPphSsUg8vFUO9WaEt.jpg">
+    			<a href="#" class="overlay" id="trigger-modal"></a>
+    
+     <div class="info">
+      	<div class="foot">
+			<p class="movie-title">Planet terror</p>
+			<i class="line"></i>
+			<p class="runtime">1h 45m</p>
+          </div>
+      </div>
+    </div> <!--end of movie box -->
+	<!--movie box -->
 	
 </div>
-</div>
-</div>
+	
+	
+
 
 <!-- ==============================================
-		MODAL OR BOOT BOX?
+		MODAL 
 =============================================== -->
+<!-- The Modal -->
+<div id="myModal" class="modal">
 
+  <!-- Modal content -->
+  <div class="modal-content">
+   
+    <div class="row" id="modal-body">
+      <div class="col-5" id="search-movie">
+					<img id="selected-movie-poster" src="https://image.tmdb.org/t/p/w600_and_h900_bestv2/7Yjzttt0VfPphSsUg8vFUO9WaEt.jpg">
+			</div>
+			<div class="col-7">
+				<div class="row"></div>
+				<span class="close">&times;</span>
+				<div class="container" id="modal-movie-info-box">
+					<h2 class="movie-title" id="modal-movie-title">PLANET TERROR</h2>
+					<div class="row">
+						<div class="col-2" id="year"><h5>2007</h5></div>
+						<div class="col-2" id="runtime"><h5>125min</h5></div>
+						<div class="col-6" id="genre"><h5>Action</h5></div>
+					</div>
+					<div class="row">
+						<h5>rating??</h5>
+					</div>
+					<div class="row">
+						<div class="col-8" id="plot">	<p>Two doctors find their graveyard shift inundated with townspeople ravaged by sores. Among the wounded is Cherry, a dancer whose leg was ripped from her body. As the invalids quickly become enraged aggressors, Cherry and her ex-boyfriend Wray lead a team of accidental warriors into the night.</p></div>
+					
+					</div>
 
+				</div>
+				
+				</div>
+			
+    </div>
+  </div>
 
+</div>
 <!-- ==============================================
 		WATCHED MOVIES
 =============================================== -->
-<div class="container">
-	  <div class="old-movies-box">
-		  	<img id="old-movies" src="https://imgc.allpostersimages.com/img/posters/reservoir-dogs_u-L-F4Q2UY0.jpg?src=gp&w=300&h=375" 
-			  style="height:100px">
-			  <img id="old-movies" src="https://d1466nnw0ex81e.cloudfront.net/n_iv/600/796139.jpg" 
-			  style="height:100px">
-			  <img id="old-movies" src="http://imgs.abduzeedo.com/files/articles/tarantino/planet_terror_poster_01.jpg" 
-			  style="height:100px">
-			  <img id="old-movies" src="https://slackershack.files.wordpress.com/2013/01/django2.jpg" 
-			  style="height:100px">
-	  </div>
-</div>
+
 
 </main>
 
@@ -95,3 +103,30 @@
 	</div>
 
 </footer>
+<script>
+// Get the modal
+var modal = document.getElementById('myModal');
+
+// Get the button that opens the modal
+var btn = document.getElementById("trigger-modal");
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+
+// When the user clicks the button, open the modal 
+btn.onclick = function() {
+    modal.style.display = "block";
+}
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+    modal.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+}
+</script>

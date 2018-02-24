@@ -1,0 +1,85 @@
+
+body {font-family: "Roboto", Helvetica, sans-serif;}
+
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+    position: relative;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+    -webkit-animation-name: animateleft;
+    -webkit-animation-duration: 0.8s;
+    animation-name: animateleft;
+    animation-duration: 0.8s; 
+   
+    
+}
+
+/* Add Animation */
+@-webkit-keyframes animateleft {
+    from {left:100%; opacity:0} 
+    to {left:100%; opacity:1}
+}
+
+@keyframes animateleft {
+    from {left:100%; opacity:0}
+    to {left:0; opacity:1}
+}
+
+/* The Close Button */
+.close {
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 25px 30px;
+    color: rgb(255, 255, 255);
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    
+}
+
+.close:hover,
+.close:focus {
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+    cursor: pointer;
+    float: right;
+    
+}
+
+
+
+
+
+/* -------Modal Header--------- */
+
+#selected-movie-poster{
+    margin: auto;
+    height: 100%;
+    width: 90%;
+    max-width: 100%;
+    overflow: hidden;
+    background-size: cover;
+   }
+#modal-movie-info-box{
+   
+    
+
+}
+#modal-movie-title{
+ color:rgb(33, 33, 33);
+ margin-top:50px;
+ font-size: 40px;
+ letter-spacing:4px;
+}
