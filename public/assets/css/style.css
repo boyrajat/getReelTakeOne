@@ -1,8 +1,13 @@
-
-
+@import url("modal.css");
+@import url("movie-box.css");
 /*
 -------HEADER------------------------------
 */
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+}
 
 .header{
     background-color: rgb(26, 26, 26);
@@ -10,12 +15,12 @@
 }
 #logo{
     height: 40px;
-    margin: 10px 0 0 20px;
+    margin: 10px 0 0 45px;
 }
 /*add input and button*/
 #add-movie-input{
     margin-top: 15px;
-    margin-right: 15px;
+    margin-right: 45px;
     border-radius: 0;
     height: 30px;
     width: 200px;
@@ -42,18 +47,18 @@
 
 /*search button*/
 #search-movie-input{
-    margin-top: 15px;
-    margin-left: 15px;
+    margin-top: 45px;
+    margin-left: 45px;
     border-radius: 0;
     height: 30px;
-    width: 200px;
+    width: 245px;
     float:left;
     background-color: rgb(237, 237, 237);
     border: none;
 }
 #search-movie-button{
-    margin-top: 15px;
-    margin-right: 15px;
+    margin-top: 45px;
+    margin-right: 25px;
     border-radius: 0;
     float: left;
     height: 30px;
@@ -61,23 +66,6 @@
 #search-movie-button:hover{
     opacity: .5;
 }
-
-/*Movies*/
-
-#movies-container{
-    margin:30px;
-}
-#movie-box{
-    padding: 10px 10px 0 10px;
-    margin-bottom: 15px;
-    
-}
-.img-responsive{
-    max-width: 100%; 
-    height: auto;
-   }
-
-
    
 /*
 -------FOOTER---------------------------------
