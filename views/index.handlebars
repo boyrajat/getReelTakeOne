@@ -19,12 +19,12 @@
 <!-- ==============================================
 		MOVIES WATCHLIST
 =============================================== -->
-<div class="row" id="search-movie">
+<!--<div class="row" id="search-movie">
 	<div class="col-9" id="search-movie">
 		<input type="text" class="form-control" id="search-movie-input" placeholder="Movie name from list">
 		<img id="search-movie-button" src="assets/images/searchBtn.jpg">
 	</div>
-</div>
+</div> -->
 <div class="row" id="movies-container">
 	<!--movie box -->
 	
@@ -63,7 +63,7 @@
 					<h2 class="movie-title" id="modal-movie-title">{{this.movie_name}}</h2>
 					<div class="row">
 						<div class="col-2" id="year"><h5>{{this.movie_year}}</h5></div>
-						<div class="col-2" id="runtime"><h5>{{this.movie_runtime}}</h5></div>
+						<div class="col-2" id="runtime"><h5>{{this.movie_time}}</h5></div>
 						<div class="col-6" id="genre"><h5>{{this.movie_genre}}</h5></div>
 					</div>
 					<div class="row">
@@ -74,10 +74,11 @@
 						<div class="col-8" id="plot">	<p>{{this.movie_plot}}</p></div>
 					
 					</div>
+					<div><img id="watched-movie-button" src="assets/images/watchedBtn.jpg"></div>
 
 				</div>
 				
-				</div>
+			</div>
 			
     </div>
   </div>
