@@ -8,9 +8,10 @@
 			<img id="logo" src="assets/images/logo2.png">
 		  </div>
   		<div class="col-7" id="add-movie">
-			<input type="text" class="form-control" id="add-movie-input" placeholder="Movie name">
+			<form action='/api/new/movie' method=POST>
+			<input name="name" type="text" class="form-control" id="add-movie-input" placeholder="Movie name">
 			<img id="add-movie-button" src="assets/images/addBtn.jpg">
-			
+			</form>
 		</div>
 	</div>
 </header>
