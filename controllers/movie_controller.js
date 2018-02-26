@@ -82,21 +82,21 @@ router.post('/api/new/movie', function(req, res) {
 // POST route which calls Sequelize's create method with a customer name,
 // then the update method to attach the name to a burger and mark that burger as eaten.
 router.put('/api/new/customer/:id', function(req, res) {
-    var customerName = req.body.customer_name;
-    db.Customer.create({
-        customer_name: customerName
-    }).then(function(data) {
-        var watched = true;
-        var ID = req.params.id;
+    // var customerName = req.body.customer_name;
+    // db.Customer.create({
+    //     customer_name: customerName
+    // }).then(function(data) {
+    var watched = true;
+    var ID = req.params.id;
 
-        db.Movie.update({
-            watched: watched,
-            CustomerId: data.id
-        }, { where: { id: ID } }).then(function() {
-            res.redirect('/');
-        });
+    db.Movie.update({
+        watched: watched,
+        //CustomerId: data.id
+    }, { where: { id: ID } }).then(function() {
+        res.redirect('/');
     });
 });
+//});
 
 
 
