@@ -74,7 +74,16 @@
 						<div class="col-8" id="plot">	<p>{{this.movie_plot}}</p></div>
 					
 					</div>
-					<div><img id="watched-movie-button" src="assets/images/watchedBtn.jpg"></div>
+					<div>
+						<form action="/api/new/customer/{{this.id}}?_method=PUT" method="POST">
+                        {{!-- <label for="customer_name" class="sr-only">Your Name:</label>
+                        <input name="customer_name" placeholder="Your Name" type="text" maxlength="30" required> --}}
+                        <input type="hidden" name="watched" value="true">
+                        <button type="submit"><img id="watched-movie-button" src="assets/images/watchedBtn.jpg"></button>
+                    </form>
+						{{!-- <button type='button' action='/api/new/customer/{{this.id}}' href='/'>CLICK <MEta:compat></MEta:compat><img id="watched-movie-button" src="assets/images/watchedBtn.jpg">
+					</button> --}}
+					</div>
 
 				</div>
 				
@@ -90,6 +99,23 @@
 		
 		 <!--end of movie box -->
 	
+
+</div>
+<hr>
+
+<!-- Watched movies section -->
+<div class='row' id='watched-container'>
+	{{#each movies}}
+		{{#if this.watched}}
+			<div class="col-lg-2 col-md-3 col-sm-6 col-xs-12" id="movie-box">
+        <div class="box gallery">
+			<div class="card">
+    		<img class="img-responsive" id="new-movies" src={{this.movie_poster}}>
+			</div>
+			</div>
+			</div>
+		{{/if}}
+		{{/each}}
 
 </div>
 	
