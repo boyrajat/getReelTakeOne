@@ -31,68 +31,85 @@
 	{{#each movies}}
 		{{#unless this.watched}}
 	
-	<div class="col-lg-2 col-md-3 col-sm-6 col-xs-12" id="movie-box">
-        <div class="box gallery">
-			<div class="card">
-    		<img class="img-responsive" id="new-movies" src={{this.movie_poster}}>
-    		<a onClick="modalDisplay({{@index}})"href="#" class="overlay link" id="trigger-modal{{@index}}"></a>
-				<div class="info">
-      		        <div class="foot">
-						<p class="movie-title">{{this.movie_name}}</p>
-						<i class="line"></i>
-						<p class="runtime">{{this.movie_time}}</p>
-					</div>
-     		    </div>
-     	    </div>
-        </div>
-	</div>
+		<div class="col-lg-2 col-md-3 col-sm-6 col-xs-12" id="movie-box">
+        	<div class="box gallery">
+				<div class="card">
+    				<img class="img-responsive" id="new-movies" src={{this.movie_poster}}>
+    				<a onClick="modalDisplay({{@index}})" href="#" class="overlay link" id="trigger-modal{{@index}}"></a>
+						<div class="info">
+      		        		<div class="foot">
+								<p class="movie-title">{{this.movie_name}}</p>
+								<i class="line"></i>
+								<p class="runtime">{{this.movie_time}}</p>
+							</div>
+     		    		</div>
+     	    	</div>
+        	</div>
+		</div>
 
 	<div id="myModal{{@index}}" class="modal">
 
-  <!-- Modal content -->
-  <div class="modal-content">
+  		<!-- Modal content -->
+  		<div class="modal-content">
    
-    <div class="row" id="modal-body">
-      <div class="col-5" id="search-movie">
+    		<div class="row" id="modal-body">
+      			<div class="col-5" id="search-movie">
 					<img id="selected-movie-poster" src={{this.movie_poster}}>
-			</div>
-			<div class="col-7">
-				<div class="row"></div>
-				<span class="close">&times;</span>
-				<div class="container" id="modal-movie-info-box">
-					<h2 class="movie-title" id="modal-movie-title">{{this.movie_name}}</h2>
-					<div class="row">
-						<div class="col-2" id="year"><h5>{{this.movie_year}}</h5></div>
-						<div class="col-2" id="runtime"><h5>{{this.movie_time}}</h5></div>
-						<div class="col-6" id="genre"><h5>{{this.movie_genre}}</h5></div>
-					</div>
-					<div class="row">
-						<div class="col-3" id="raiting-imdb"><img id="imdb-logo" src="assets/images/imdbLogo.png"><h6>{{this.movie_ratingImdb}}</h6></div>
-                        <div class="col-3" id="raiting-roten"><img id="roten-logo" src="assets/images/rotenLogo.png"><h6>{{this.movie_ratingRotten}}</h6></div>
-					</div>
-					<div class="row">
-						<div class="col-8" id="plot">	<p>{{this.movie_plot}}</p></div>
-					
-					</div>
-					<div>
-						<form action="/api/new/customer/{{this.id}}?_method=PUT" method="POST">
-                        {{!-- <label for="customer_name" class="sr-only">Your Name:</label>
-                        <input name="customer_name" placeholder="Your Name" type="text" maxlength="30" required> --}}
-                        <input type="hidden" name="watched" value="true">
-                        <button type="submit"><img id="watched-movie-button" src="assets/images/watchedBtn.jpg"></button>
-                    </form>
-						{{!-- <button type='button' action='/api/new/customer/{{this.id}}' href='/'>CLICK <MEta:compat></MEta:compat><img id="watched-movie-button" src="assets/images/watchedBtn.jpg">
-					</button> --}}
-					</div>
-
 				</div>
-				
-			</div>
-			
-    </div>
-  </div>
+				<div class="col-7">
+					<div class="row"></div>
+					<span id='closeit{{@index}}' class="close">&times;</span>
+					<div class="container" id="modal-movie-info-box">
+						<h2 class="movie-title" id="modal-movie-title">{{this.movie_name}}</h2>
+						<div class="row">
+							<div class="col-2" id="year"><h5>{{this.movie_year}}</h5></div>
+							<div class="col-2" id="runtime"><h5>{{this.movie_time}}</h5></div>
+							<div class="col-6" id="genre"><h5>{{this.movie_genre}}</h5></div>
+						</div>
+						<div class="row">
+							<div class="col-3" id="raiting-imdb"><img id="imdb-logo" src="assets/images/imdbLogo.png"><h6>{{this.movie_ratingImdb}}</h6></div>
+                        	<div class="col-3" id="raiting-roten"><img id="roten-logo" src="assets/images/rotenLogo.png"><h6>{{this.movie_ratingRotten}}</h6></div>
+						</div>
 
-</div>
+						<div class="row">
+							<div class="col-8" id="director">	
+								<p><strong>Directed by: </strong></p><p>{{this.movie_director}}</p>
+							</div>
+					
+						</div>
+						
+						<div class="row">
+							<div class="col-8" id="cast">
+								<p><strong>Starring: </strong></p>	<p>{{this.movie_actors}}</p>
+							</div>
+					
+						</div>
+
+						
+						<div class="row">
+							<div class="col-8" id="plot">	
+								<p><strong>Plot: </strong></p><p>{{this.movie_plot}}</p>
+							</div>
+					
+						</div>
+						
+						<div>
+							<form action="/api/new/customer/{{this.id}}?_method=PUT" method="POST">
+                       
+                        		<input type="hidden" name="watched" value="true">
+                       			<button type="submit"><img id="watched-movie-button" src="assets/images/watchedBtn.jpg"></button>
+                    		</form>
+						
+						</div>
+
+					</div>
+				
+				</div>
+			
+    		</div>
+  		</div>
+
+	</div>
 
 		{{/unless}}
 	{{/each}}
@@ -108,14 +125,14 @@
 	{{#each movies}}
 		{{#if this.watched}}
 			<div class="col-lg-2 col-md-3 col-sm-6 col-xs-12" id="movie-box">
-        <div class="box gallery">
-			<div class="card">
-    		<img class="img-responsive" id="new-movies" src={{this.movie_poster}}>
-			</div>
-			</div>
+       			<div class="box gallery">
+					<div class="card">
+    					<img class="img-responsive" id="new-movies" src={{this.movie_poster}}>
+					</div>
+				</div>
 			</div>
 		{{/if}}
-		{{/each}}
+	{{/each}}
 
 </div>
 	
@@ -180,18 +197,19 @@
 </footer>
 <script>
 
-	function modalDisplay(num) {
+function modalDisplay(num) {
 		console.log(num);
 // Get the modal
 var modal = document.getElementById('myModal'+num);
-console.log(modal);
+//console.log(modal);
 // Get the button that opens the modal
 var btn = document.getElementById("trigger-modal"+num);
+ modal.style.display = "block";
 // Get the <span> element that closes the modal
-var span = document.getElementsByClassName("close")[num];
+var span = document.getElementById('closeit'+num);
 // When the user clicks the button, open the modal 
 //btn.onclick = function() {
-    modal.style.display = "block";
+   
 //}
 // When the user clicks on <span> (x), close the modal
 span.onclick = function() {
@@ -201,7 +219,7 @@ span.onclick = function() {
 window.onclick = function(event) {
     if (event.target == modal) {
         modal.style.display = "none";
-    }
-}
+    	}
 	}
+}
 </script>
