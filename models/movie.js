@@ -10,7 +10,7 @@ module.exports = function(sequelize, DataTypes) {
             allowNull: false
         },
         movie_name: {
-            type: DataTypes.STRING(30),
+            type: DataTypes.STRING(100),
             allowNull: false
         },
         movie_poster: {
@@ -39,6 +39,10 @@ module.exports = function(sequelize, DataTypes) {
         },
         movie_year: {
             type: DataTypes.INTEGER(4),
+            allowNull: false
+        },
+        movie_trailer: {
+            type: DataTypes.STRING,
             allowNull: false
         },
         movie_ratingImdb: {
@@ -73,9 +77,7 @@ module.exports = function(sequelize, DataTypes) {
                         allowNull: true
                     }
                 });
-
             }
-
         }
     });
 

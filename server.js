@@ -20,7 +20,7 @@ app.engine('handlebars', exphbs({ defaultLayout: 'main' }));
 app.set('view engine', 'handlebars');
 
 // Favicon
-app.use(favicon(path.join(__dirname, 'public/assets/img', 'burger.png')));
+app.use(favicon(path.join(__dirname, 'public/assets/images', 'favicon.png')));
 
 // Body Parser
 app.use(bodyParser.json());

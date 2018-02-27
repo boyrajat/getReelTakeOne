@@ -1,92 +1,107 @@
 @import url("modal.css");
 @import url("movie-box.css");
+
 /*
 -------HEADER------------------------------
 */
-*{
-    margin:0;
-    padding:0;
+
+* {
+    margin: 0;
+    padding: 0;
     box-sizing: border-box;
 }
 
-.header{
+.header {
     background-color: rgb(26, 26, 26);
     height: 60px;
 }
-#logo{
+
+#logo {
     height: 40px;
     margin: 10px 0 0 45px;
 }
+
+
 /*add input and button*/
-#add-movie-input{
+
+#add-movie-input {
     margin-top: 15px;
     margin-right: 45px;
     border-radius: 0;
     height: 30px;
     width: 200px;
-    float:right;
+    float: right;
     background-color: rgb(237, 237, 237);
     border: none;
 }
-#add-movie-button{
+
+#add-movie-button {
     margin-top: 15px;
     border-radius: 0;
     float: right;
     height: 30px;
-    
 }
-#add-movie-button:hover{
+
+#add-movie-image {
+    max-width: 30px;
+}
+
+#add-movie-button:hover {
     opacity: .5;
 }
 
+
 /*end of add button*/
+
 
 /*
 -------MAIN---------------------------------
 */
 
+
 /*search button*/
-#search-movie-input{
+
+#search-movie-input {
     margin-top: 45px;
     margin-left: 45px;
     border-radius: 0;
     height: 30px;
     width: 245px;
-    float:left;
+    float: left;
     background-color: rgb(237, 237, 237);
     border: none;
 }
-#search-movie-button{
+
+#search-movie-button {
     margin-top: 45px;
     margin-right: 25px;
     border-radius: 0;
     float: left;
     height: 30px;
 }
-#search-movie-button:hover{
+
+#search-movie-button:hover {
     opacity: .5;
 }
-   
+
+
 /*
 -------FOOTER---------------------------------
 */
 
-.footer{
+.footer {
     position: fixed;
-    bottom:0;
+    bottom: 0;
     background: rgb(26, 26, 26);
     height: 50px;
     width: 100%;
-    
 }
 
-#footer_text{
-    float:right;
+#footer_text {
+    float: right;
     margin-right: 25px;
     margin-top: 18px;
-    font-size: 12px;  
+    font-size: 12px;
     color: rgb(199, 198, 198);
     font-family: 'Roboto', sans-serif;
-    }
-
-    
+}
