@@ -21,7 +21,6 @@ If you would like to run the application locally, please ensure that you have th
 
 ## Built with
 - Bootstrap (Front-end framework)
-- DataGrip (Database GUI)
 - Express.js (Server framework)
 - Handlebars (Templating engine)
 - Heroku (Cloud platform)

@@ -10,7 +10,7 @@
   		<div class="col-7" id="add-movie">
 			<form action='/api/new/movie' method=POST>
 			<input name="name" type="text" class="form-control" id="add-movie-input" placeholder="Movie name">
-			<img id="add-movie-button" src="assets/images/addBtn.jpg">
+		<button id="add-movie-button"><img id="add-movie-image" src="assets/images/addBtn.jpg"></button>
 			</form>
 		</div>
 	</div>
@@ -19,12 +19,7 @@
 <!-- ==============================================
 		MOVIES WATCHLIST
 =============================================== -->
-<!--<div class="row" id="search-movie">
-	<div class="col-9" id="search-movie">
-		<input type="text" class="form-control" id="search-movie-input" placeholder="Movie name from list">
-		<img id="search-movie-button" src="assets/images/searchBtn.jpg">
-	</div>
-</div> -->
+
 <div class="row" id="movies-container">
 	<!--movie box -->
 	
@@ -94,13 +89,17 @@
 						</div>
 						
 						<div>
-							<form action="/api/new/customer/{{this.id}}?_method=PUT" method="POST">
+							<form action="/api/new/watched/{{this.id}}?_method=PUT" method="POST">
                        
                         		<input type="hidden" name="watched" value="true">
                        			<button type="submit"><img id="watched-movie-button" src="assets/images/watchedBtn.jpg"></button>
                     		</form>
 						
 						</div>
+						<!-- trailer -->
+						
+							<iframe width="854" height="480" src="https://www.youtube.com/embed/{{this.movie_trailer}}" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+						
 
 					</div>
 				
@@ -118,15 +117,23 @@
 	
 
 </div>
-<hr>
 
-<!-- Watched movies section -->
+<hr>
+<!-- ==============================================
+		WATCHED MOVIES
+=============================================== -->
 <div class='row' id='watched-container'>
 	{{#each movies}}
 		{{#if this.watched}}
 			<div class="col-lg-2 col-md-3 col-sm-6 col-xs-12" id="movie-box">
        			<div class="box gallery">
 					<div class="card">
+						<form action="/{{this.id}}?_method=PUT" method="POST">
+                        	<input type="hidden" name="watched" value="false">
+							<img class="img-responsive" id="new-movies" src={{this.movie_poster}}>
+                        	<a href="/" class="overlay link" id="markUnWatched"><button type="submit" class="btn btn-danger btn-sm">Mark not Watched</button></a>
+
+                    	</form>
     					<img class="img-responsive" id="new-movies" src={{this.movie_poster}}>
 					</div>
 				</div>
@@ -137,53 +144,6 @@
 </div>
 	
 	
-
-
-<!-- ==============================================
-		MODAL 
-=============================================== -->
-<!-- The Modal -->
-{{!-- <div id="myModal" class="modal">
-
-  <!-- Modal content -->
-  <div class="modal-content">
-   
-    <div class="row" id="modal-body">
-      <div class="col-5" id="search-movie">
-					<img id="selected-movie-poster" src="https://image.tmdb.org/t/p/w600_and_h900_bestv2/7Yjzttt0VfPphSsUg8vFUO9WaEt.jpg">
-			</div>
-			<div class="col-7">
-				<div class="row"></div>
-				<span class="close">&times;</span>
-				<div class="container" id="modal-movie-info-box">
-					<h2 class="movie-title" id="modal-movie-title">PLANET TERROR</h2>
-					<div class="row">
-						<div class="col-2" id="year"><h5>2007</h5></div>
-						<div class="col-2" id="runtime"><h5>125min</h5></div>
-						<div class="col-6" id="genre"><h5>Action</h5></div>
-					</div>
-					<div class="row">
-						<div class="col-3" id="raiting-imdb"><img id="imdb-logo" src="assets/images/imdbLogo.png"><h6>6.3</h6></div>
-                        <div class="col-3" id="raiting-roten"><img id="roten-logo" src="assets/images/rotenLogo.png"><h6>65%</h6></div>
-					</div>
-					<div class="row">
-						<div class="col-8" id="plot">	<p>Two doctors find their graveyard shift inundated with townspeople ravaged by sores. Among the wounded is Cherry, a dancer whose leg was ripped from her body. As the invalids quickly become enraged aggressors, Cherry and her ex-boyfriend Wray lead a team of accidental warriors into the night.</p></div>
-					
-					</div>
-
-				</div>
-				
-				</div>
-			
-    </div>
-  </div>
-
-</div> --}}
-<!-- ==============================================
-		WATCHED MOVIES
-=============================================== -->
-
-
 </main>
 
 <!-- ==============================================
@@ -195,6 +155,8 @@
 	</div>
 
 </footer>
+
+
 <script>
 
 function modalDisplay(num) {
@@ -205,6 +167,7 @@ var modal = document.getElementById('myModal'+num);
 // Get the button that opens the modal
 var btn = document.getElementById("trigger-modal"+num);
  modal.style.display = "block";
+ //embedUt(num);
 // Get the <span> element that closes the modal
 var span = document.getElementById('closeit'+num);
 // When the user clicks the button, open the modal 
@@ -222,4 +185,5 @@ window.onclick = function(event) {
     	}
 	}
 }
+
 </script>

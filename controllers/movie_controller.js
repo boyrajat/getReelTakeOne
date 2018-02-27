@@ -2,7 +2,7 @@
 var express = require('express');
 var router = express.Router();
 var request = require('request');
-//var omdb = require('omdb');
+
 // Import data model.
 var db = require('../models');
 
@@ -10,10 +10,8 @@ var db = require('../models');
 // This route then hands the data it receives to handlebars so index can be rendered.
 router.get('/', function(req, res) {
     db.Movie.findAll({
-        order: 'movie_name ASC',
-        include: [
-            { model: db.Customer, required: false }
-        ]
+        order: 'movie_name ASC'
+
     }).then(function(data) {
         var hbsObject = {
             movies: data
@@ -24,91 +22,100 @@ router.get('/', function(req, res) {
 
 // POST route which calls Sequelize's create method with the movie name given.
 router.post('/api/new/movie', function(req, res) {
+
     var movieName = req.body.name;
-    // movieName = movieName.toLowerCase();
+
     var queryUrl = "http://omdbapi.com/?apikey=40e9cece&t=" + movieName;
 
     request(queryUrl, function(error, response, body) {
-        // console.log(error);
-        // console.log(response);
 
 
         if (!error && JSON.parse(body).Response !== 'False') {
             console.log(JSON.parse(body));
-            console.log(JSON.parse(body).Poster);
-            // var reqData = '\n' + '<---- Here It Goes ----> ' +
-            //     '\n' + '> Title: ' + JSON.parse(body).Title +
-            //     '\n' + '> Year Released: ' + JSON.parse(body).Year +
-            //     '\n' + '> IMDB Rating: ' + JSON.parse(body).Ratings[0].Value +
-            //     '\n' + '> Rotten Tomatoes Rating: ' + JSON.parse(body).Ratings[1].Value +
-            //     '\n' + '> Countries: ' + JSON.parse(body).Country +
-            //     '\n' + '> Available in: ' + JSON.parse(body).Language +
-            //     '\n' + '> Starring: ' + JSON.parse(body).Actors +
-            //     '\n' + '> Here is a gist of it: ' + JSON.parse(body).Plot + '\n';
 
-            // console.log(reqData);
+            var imdbId = JSON.parse(body).imdbID;
 
-            //                     fs.appendFile('./log.txt', '\n***MOVIE INFO LOGGED' + reqData + '\n', function() {
-            // console.log('\nMOVIE INFO HAS BEEN LOGGED TO log.txt FILE' + '\n');
-            // });
+            console.log(imdbId);
+
+            var videos = "";
+
+            var options = {
+                method: 'GET',
+                url: 'https://api.themoviedb.org/3/movie/' + imdbId + '/videos',
+                qs: {
+                    language: 'en-US',
+                    api_key: 'd50548305ff81a83c1c65efa4ce59583'
+                },
+                body: '{}'
+            };
+
+            request(options, function(error, response, result) {
+
+                if (error) res.redirect('/');
 
 
+                // if (error) {
+                //     alert("Seems to be a problem with your input. Please try again");
+                //     //res.redirect('/');
+                // } else {
+                if (!JSON.parse(result).results) {
+                    // res.send('SOMETHING WENT WRONG');
+                    res.redirect('/')
+                } else {
+                    videos = JSON.parse(result).results[0].key;
+                    console.log(videos);
+                    db.Movie.create({
+                        movie_name: JSON.parse(body).Title,
+                        movie_poster: JSON.parse(body).Poster,
+                        movie_genre: JSON.parse(body).Genre,
+                        movie_time: JSON.parse(body).Runtime,
+                        movie_plot: JSON.parse(body).Plot,
+                        movie_director: JSON.parse(body).Director,
+                        movie_actors: JSON.parse(body).Actors,
+                        movie_year: JSON.parse(body).Year,
+                        movie_trailer: videos,
+                        movie_ratingImdb: JSON.parse(body).Ratings[0].Value,
+                        movie_ratingRotten: JSON.parse(body).Ratings[1].Value
+
+                    }).then(function() {
+                        res.redirect('/');
+                    });
+
+                }
+            });
 
         } else {
             console.log("\nOops...something went wrong with you movie search. Try again...");
-            // fs.appendFile('./log.txt', '\n***MOVIE SEARCH ERROR LOGGED ' + JSON.parse(body).Error + '\n', function() {
-            // console.log('\nMOVIE SEARCH ERROR HAS BEEN LOGGED TO log.txt FILE' + '\n');
-        }
-        db.Movie.create({
-            movie_name: JSON.parse(body).Title,
-            movie_poster: JSON.parse(body).Poster,
-            movie_genre: JSON.parse(body).Genre,
-            movie_time: JSON.parse(body).Runtime,
-            movie_plot: JSON.parse(body).Plot,
-            movie_director: JSON.parse(body).Director,
-            movie_actors: JSON.parse(body).Actors,
-            movie_year: JSON.parse(body).Year,
-            movie_ratingImdb: JSON.parse(body).Ratings[0].Value,
-            movie_ratingRotten: JSON.parse(body).Ratings[1].Value
-        }).then(function() {
             res.redirect('/');
-        });
+        }
     });
-
-
-
 });
 
-// POST route which calls Sequelize's create method with a customer name,
-// then the update method to attach the name to a burger and mark that burger as eaten.
-router.put('/api/new/customer/:id', function(req, res) {
-    // var customerName = req.body.customer_name;
-    // db.Customer.create({
-    //     customer_name: customerName
-    // }).then(function(data) {
+
+// update method to mark that movie as watched.
+router.put('/api/new/watched/:id', function(req, res) {
+
     var watched = true;
     var ID = req.params.id;
 
     db.Movie.update({
         watched: watched,
-        //CustomerId: data.id
+
     }, { where: { id: ID } }).then(function() {
         res.redirect('/');
     });
 });
-//});
 
 
-
-// PUT (update) route which calls Sequelize's update method to make the burger available to eat again..
-// Sends the id to identify which burger. Clears out CustomerId.
+// PUT (update) route which calls Sequelize's update method to mark the movie as not yet watched .
+// Sends the id to identify which movie. 
 router.put('/:id', function(req, res) {
     var watched = false;
     var ID = req.params.id;
 
     db.Movie.update({
         watched: watched,
-        CustomerId: null
+
     }, { where: { id: ID } }).then(function() {
         res.redirect('/');
     });
