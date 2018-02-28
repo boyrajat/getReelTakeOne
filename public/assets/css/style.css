@@ -1,6 +1,6 @@
 @import url("modal.css");
 @import url("movie-box.css");
-
+@import url("watched-movies.css");
 /*
 -------HEADER------------------------------
 */
@@ -90,7 +90,7 @@
 */
 
 .footer {
-    position: fixed;
+    
     bottom: 0;
     background: rgb(26, 26, 26);
     height: 50px;

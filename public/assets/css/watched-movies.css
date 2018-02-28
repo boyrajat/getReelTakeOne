@@ -1,0 +1,33 @@
+#watched-container{
+    background-color: rgb(48, 48, 48);
+    max-height: 200px;
+    overflow: auto;
+} 
+
+.watched-box{
+    width: 100px;
+    height:150px;
+    opacity: 0.8;
+   
+    display: inline-block;
+    
+}
+#watched-movies.img-responsive{
+    border:0;
+    float: left;  
+}
+
+.img-responsive{
+    max-width: 100%; 
+    height: auto;
+    border: 0;
+}
+#unwatch-btn{
+    width:100px;
+    border: 0;
+    border-radius: 0;
+    background-color: gray;
+    color:white;
+}
+#movie-box{
+}

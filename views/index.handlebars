@@ -48,57 +48,64 @@
   		<div class="modal-content">
    
     		<div class="row" id="modal-body">
-      			<div class="col-5" id="search-movie">
-					<img id="selected-movie-poster" src={{this.movie_poster}}>
-				</div>
-				<div class="col-7">
-					<div class="row"></div>
-					<span id='closeit{{@index}}' class="close">&times;</span>
-					<div class="container" id="modal-movie-info-box">
-						<h2 class="movie-title" id="modal-movie-title">{{this.movie_name}}</h2>
-						<div class="row">
-							<div class="col-2" id="year"><h5>{{this.movie_year}}</h5></div>
-							<div class="col-2" id="runtime"><h5>{{this.movie_time}}</h5></div>
-							<div class="col-6" id="genre"><h5>{{this.movie_genre}}</h5></div>
-						</div>
-						<div class="row">
-							<div class="col-3" id="raiting-imdb"><img id="imdb-logo" src="assets/images/imdbLogo.png"><h6>{{this.movie_ratingImdb}}</h6></div>
-                        	<div class="col-3" id="raiting-roten"><img id="roten-logo" src="assets/images/rotenLogo.png"><h6>{{this.movie_ratingRotten}}</h6></div>
-						</div>
+      			<!--poster -->
+					<div class="col-5" id="search-movie">
+						<img id="selected-movie-poster" src={{this.movie_poster}}>
+					</div>
 
-						<div class="row">
-							<div class="col-8" id="director">	
-								<p><strong>Directed by: </strong></p><p>{{this.movie_director}}</p>
+					<div class="col-7" id="movie-scroll">
+						<!--close BTN -->
+						<span id='closeit{{@index}}' class="close">&times;</span>
+						
+						<div class="container" id="modal-movie-info-box">
+							<!--Movie Title -->
+							<h2 class="movie-title" id="modal-movie-title">{{this.movie_name}}</h2>
+							<!--Year, Runtime & Genre -->
+							<div class="row" id="YRG-box">
+								<div class="col-2" id="year"><h5>{{this.movie_year}}</h5></div>
+								<div class="col-2" id="runtime"><h5>{{this.movie_time}}</h5></div>
+								<div class="col-6" id="genre"><h5>{{this.movie_genre}}</h5></div>
 							</div>
-					
-						</div>
-						
-						<div class="row">
-							<div class="col-8" id="cast">
-								<p><strong>Starring: </strong></p>	<p>{{this.movie_actors}}</p>
+							<!--Raitings -->
+							<div class="row" id="raitings">
+								<div class="col-3" id="raiting-imdb">
+									<img class="imdb-logo" src="assets/images/imdbLogo.png">
+									<h6 class="imdb-text">{{this.movie_ratingImdb}}</h6>
+								</div>
+								<div class="col-4" id="raiting-roten">
+									<img class="roten-logo" src="assets/images/rotenLogo.png">
+									<h6 class="roten-text">{{this.movie_ratingRotten}}</h6>
+								</div>
 							</div>
-					
-						</div>
-
-						
-						<div class="row">
-							<div class="col-8" id="plot">	
-								<p><strong>Plot: </strong></p><p>{{this.movie_plot}}</p>
+							<!--Director-->
+							<div class="row">
+								<div class="col-10" id="director">	
+									<p><strong>Directed by: </strong>{{this.movie_director}}</p>
+								</div>
 							</div>
-					
-						</div>
-						
-						<div>
-							<form action="/api/new/watched/{{this.id}}?_method=PUT" method="POST">
-                       
-                        		<input type="hidden" name="watched" value="true">
-                       			<button type="submit"><img id="watched-movie-button" src="assets/images/watchedBtn.jpg"></button>
-                    		</form>
-						
-						</div>
+							<!--Cast -->
+							<div class="row">
+								<div class="col-10" id="cast">
+									<p><strong>Starring: </strong>{{this.movie_actors}}</p>
+								</div>
+							</div>
+							<!--Plot -->
+							<div class="row">
+								<div class="col-10" id="plot">	
+									<p><strong>Plot: </strong>{{this.movie_plot}}</p>
+								</div>
+							</div>
+							<!--Watched movies BTN -->
+							<div>
+								<form action="/api/new/watched/{{this.id}}?_method=PUT" method="POST">
+									<input type="hidden" name="watched" value="true">
+									<button type="submit"><img id="watched-movie-button" src="assets/images/watchedBtn.jpg"></button>
+								</form>
+							
+							</div>
 						<!-- trailer -->
 						
-							<iframe width="854" height="480" src="https://www.youtube.com/embed/{{this.movie_trailer}}" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+							<iframe id="trailer-box" src="https://www.youtube.com/embed/{{this.movie_trailer}}"  frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
 						
 
 					</div>
@@ -118,23 +125,21 @@
 
 </div>
 
-<hr>
 <!-- ==============================================
 		WATCHED MOVIES
 =============================================== -->
 <div class='row' id='watched-container'>
 	{{#each movies}}
 		{{#if this.watched}}
-			<div class="col-lg-2 col-md-3 col-sm-6 col-xs-12" id="movie-box">
-       			<div class="box gallery">
+			<div class="col-lg-1 col-md-2 col-sm-6 col-xs-12" id="movie-box">
+       			<div class="watched-box">
 					<div class="card">
 						<form action="/{{this.id}}?_method=PUT" method="POST">
                         	<input type="hidden" name="watched" value="false">
-							<img class="img-responsive" id="new-movies" src={{this.movie_poster}}>
-                        	<a href="/" class="overlay link" id="markUnWatched"><button type="submit" class="btn btn-danger btn-sm">Mark not Watched</button></a>
+							<img class="img-responsive" id="watched-movies" src={{this.movie_poster}}>
+                        	<a href="/" class="overlay link" id="unwatch"><button type="submit" class="btn" id="unwatch-btn">Unwatch it</button></a>
 
                     	</form>
-    					<img class="img-responsive" id="new-movies" src={{this.movie_poster}}>
 					</div>
 				</div>
 			</div>

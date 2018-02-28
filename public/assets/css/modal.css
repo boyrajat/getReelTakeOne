@@ -72,10 +72,11 @@ body {font-family: "Roboto", Helvetica, sans-serif;}
     overflow: hidden;
     background-size: cover;
    }
-#modal-movie-info-box{
-   
+#movie-scroll{
+    width: 40vh;
+    height: 90vh;
+    overflow-y: scroll;
     
-
 }
 #modal-movie-title{
  color:rgb(33, 33, 33);
@@ -84,12 +85,42 @@ body {font-family: "Roboto", Helvetica, sans-serif;}
  letter-spacing:4px;
 }
 
-.imdb-text {
-    display: inline-block;
+#YRG-box{
+    margin-top: 30px;
 }
-.imdb-logo{
+#raitings{
+    margin-top: 20px;
+}
+    .imdb-logo {
+        display: inline-block;
+    }
+
+    .imdb-text {
+        display: inline-block;
+    }
+
+    .roten-logo{
+        display: inline-block;
+    }
+
+    .roten-text{
+        display: inline-block;
+    }
+
+#director{
+    margin-top: 20px;  
+}
+#strong-text{
     display: inline-block;
 }
 #watched-movie-button{
     height: 30px;
+}
+#watched-movie-button:hover{
+    opacity:0.5;
+}
+
+#trailer-box{
+    margin-top: 20px;
+    display:content;
 }
