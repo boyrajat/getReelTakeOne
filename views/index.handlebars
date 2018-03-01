@@ -4,10 +4,31 @@
 
 <header class="header">
   	<div class="row" id="header_text-box">
-  		<div class="col-5">
+  		<div class="col-3">
 			<img id="logo" src="assets/images/logo2.png">
 		  </div>
-  		<div class="col-7" id="add-movie">
+
+		  
+  		<div class="col-3" id="add-movie">
+			<form action='/year' method=GET>
+			{{!-- <input name="hidden"> --}}
+		<button id="sortYear-button"><img id="add-movie-image" src="assets/images/addBtn.jpg">Sort By Year</button>
+			</form>
+		</div>
+
+
+  		<div class="col-3" id="add-movie">
+			<form action='/rating' method=GET>
+			{{!-- <input name="hidden" type="text" class="form-control" id="add-movie-input" placeholder="Movie name"> --}}
+		<button id="sortRating-button"><img id="add-movie-image" src="assets/images/addBtn.jpg">Sort by IMDB rating</button>
+			</form>
+		</div>
+
+
+  		
+		  
+
+  		<div class="col-3" id="add-movie">
 			<form action='/api/new/movie' method=POST>
 			<input name="name" type="text" class="form-control" id="add-movie-input" placeholder="Movie name">
 		<button id="add-movie-button"><img id="add-movie-image" src="assets/images/addBtn.jpg"></button>

@@ -20,6 +20,31 @@ router.get('/', function(req, res) {
     });
 });
 
+router.get('/year', function(req, res) {
+    db.Movie.findAll({
+        order: 'movie_year DESC'
+
+    }).then(function(data) {
+        var hbsObject = {
+            movies: data
+        };
+        res.render('index', hbsObject);
+    });
+});
+
+router.get('/rating', function(req, res) {
+    db.Movie.findAll({
+        order: 'movie_ratingImdb DESC'
+
+    }).then(function(data) {
+        var hbsObject = {
+            movies: data
+        };
+        res.render('index', hbsObject);
+    });
+});
+
+
 // POST route which calls Sequelize's create method with the movie name given.
 router.post('/api/new/movie', function(req, res) {
 
