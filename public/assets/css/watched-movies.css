@@ -1,15 +1,15 @@
 #watched-container{
     background-color: rgb(48, 48, 48);
-    max-height: 200px;
+    max-height: 220px;
     overflow: auto;
+    border-top: 6px solid rgb(26, 26, 26);;
 } 
 
 .watched-box{
     width: 100px;
     height:150px;
-    opacity: 0.8;
-   
-    display: inline-block;
+    opacity: 0.7;
+   display: inline-block;
     
 }
 #watched-movies.img-responsive{
@@ -26,8 +26,10 @@
     width:100px;
     border: 0;
     border-radius: 0;
-    background-color: gray;
+    background-color: rgb(154, 154, 154);
     color:white;
 }
-#movie-box{
+#watched-form{
+    border-radius: 0;
+    border: none;
 }

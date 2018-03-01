@@ -59,9 +59,6 @@ body {font-family: "Roboto", Helvetica, sans-serif;}
 }
 
 
-
-
-
 /* -------Modal Header--------- */
 
 #selected-movie-poster{
@@ -84,7 +81,9 @@ body {font-family: "Roboto", Helvetica, sans-serif;}
  font-size: 40px;
  letter-spacing:4px;
 }
-
+#modal-movie-info-box{
+    height: 100vh;
+}
 #YRG-box{
     margin-top: 30px;
 }
@@ -122,5 +121,6 @@ body {font-family: "Roboto", Helvetica, sans-serif;}
 
 #trailer-box{
     margin-top: 20px;
-    display:content;
+    height: 300px;
+    width: 500px;
 }

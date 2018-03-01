@@ -4,33 +4,16 @@
 
 <header class="header">
   	<div class="row" id="header_text-box">
-  		<div class="col-3">
+  		<div class="col-7">
 			<img id="logo" src="assets/images/logo2.png">
 		  </div>
 
-		  
-  		<div class="col-3" id="add-movie">
-			<form action='/year' method=GET>
-			{{!-- <input name="hidden"> --}}
-		<button id="sortYear-button"><img id="add-movie-image" src="assets/images/addBtn.jpg">Sort By Year</button>
-			</form>
-		</div>
+  	
 
 
-  		<div class="col-3" id="add-movie">
-			<form action='/rating' method=GET>
-			{{!-- <input name="hidden" type="text" class="form-control" id="add-movie-input" placeholder="Movie name"> --}}
-		<button id="sortRating-button"><img id="add-movie-image" src="assets/images/addBtn.jpg">Sort by IMDB rating</button>
-			</form>
-		</div>
-
-
-  		
-		  
-
-  		<div class="col-3" id="add-movie">
+  		<div class="col-5" id="add-movie">
 			<form action='/api/new/movie' method=POST>
-			<input name="name" type="text" class="form-control" id="add-movie-input" placeholder="Movie name">
+			<input name="name" type="text" class="form-control" id="add-movie-input" placeholder="Add Movie Name">
 		<button id="add-movie-button"><img id="add-movie-image" src="assets/images/addBtn.jpg"></button>
 			</form>
 		</div>
@@ -40,7 +23,20 @@
 <!-- ==============================================
 		MOVIES WATCHLIST
 =============================================== -->
+<div class="row" id="sort-box">
+	<div id="sortYear-box">
+		<form action='/year' method=GET>
+			<button id="sortYear-button"><img id="sortYear-img" src="assets/images/sortYearBtn.jpg"></button>
+		</form>
+	</div>
 
+	<div id="sortRaiting-box">
+		<form action='/rating' method=GET>
+			<button id="sortRating-button"><img id="sortRaiting-img" src="assets/images/sortRaitingBtn.jpg"></button>
+		</form>
+	</div>
+
+</div>
 <div class="row" id="movies-container">
 	<!--movie box -->
 	
@@ -154,9 +150,9 @@
 		{{#if this.watched}}
 			<div class="col-lg-1 col-md-2 col-sm-6 col-xs-12" id="movie-box">
        			<div class="watched-box">
-					<div class="card">
-						<form action="/{{this.id}}?_method=PUT" method="POST">
-                        	<input type="hidden" name="watched" value="false">
+					<div class="card" id="watched-form">
+						<form action="/{{this.id}}?_method=PUT" method="POST" >
+                        	
 							<img class="img-responsive" id="watched-movies" src={{this.movie_poster}}>
                         	<a href="/" class="overlay link" id="unwatch"><button type="submit" class="btn" id="unwatch-btn">Unwatch it</button></a>
 
