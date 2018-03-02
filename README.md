@@ -33,6 +33,7 @@ Node.js (Javascript environment)
 
 Sequelize (ORM)
 
+## Getting Started
 
 ### Prerequisites
 - MySQL
