@@ -113,21 +113,25 @@
 								</div>
 							</div>
 							<!--Watched movies BTN -->
-							<div>
+							<div class="row">
+								<div class="col-md-3">
 								<form action="/api/new/watched/{{this.id}}?_method=PUT" method="POST">
 									<input type="hidden" name="watched" value="true">
 									<button type="submit"><img id="watched-movie-button" src="assets/images/watchedBtn.jpg"></button>
 								</form>
-							
-							</div>
+								</div>
 							<!-- Remove movie button -->
-							<div>
-								<form action="/api/new/delete/{{this.id}}?_method=DELETE" method="POST">
+
+								<div class="col-md-3">
+							<form action="/api/new/delete/{{this.id}}?_method=DELETE" method="POST">
 									<input type="hidden" name="watched" value="true">
 									<button type="submit"><img id="delete-movie-button" src="assets/images/trashItBtn.jpg"></button>
 								</form>
-							
+								</div>
+								<div class="col-md-6"></div>
 							</div>
+							
+							
 						<!-- trailer -->
 						
 							<iframe id="trailer-box" src="https://www.youtube.com/embed/{{this.movie_trailer}}"  frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
