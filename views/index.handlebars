@@ -120,6 +120,14 @@
 								</form>
 							
 							</div>
+							<!-- Remove movie button -->
+							<div>
+								<form action="/api/new/delete/{{this.id}}?_method=DELETE" method="POST">
+									<input type="hidden" name="watched" value="true">
+									<button type="submit"><img id="delete-movie-button" src="assets/images/trashItBtn.jpg"></button>
+								</form>
+							
+							</div>
 						<!-- trailer -->
 						
 							<iframe id="trailer-box" src="https://www.youtube.com/embed/{{this.movie_trailer}}"  frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>

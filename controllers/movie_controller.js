@@ -146,5 +146,18 @@ router.put('/:id', function(req, res) {
     });
 });
 
+// Deleting a movie
+
+router.delete('/api/new/delete/:id', function(req, res) {
+
+    var ID = req.params.id;
+
+    db.Movie.destroy({
+        where: { id: ID }
+    }).then(function() {
+        res.redirect('/');
+    });
+});
+
 // Export routes for server.js.
 module.exports = router;

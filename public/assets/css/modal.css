@@ -1,44 +1,73 @@
-
-body {font-family: "Roboto", Helvetica, sans-serif;}
-
-/* The Modal (background) */
-.modal {
-    display: none; /* Hidden by default */
-    position: fixed; /* Stay in place */
-    z-index: 1; /* Sit on top */
-    left: 0;
-    top: 0;
-    width: 100vw; /* Full width */
-    height: 100vh; /* Full height */
-    overflow: auto; /* Enable scroll if needed */
-    background-color: rgb(0,0,0); /* Fallback color */
-    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+body {
+    font-family: "Roboto", Helvetica, sans-serif;
 }
 
+
+/* The Modal (background) */
+
+.modal {
+    display: none;
+    /* Hidden by default */
+    position: fixed;
+    /* Stay in place */
+    z-index: 1;
+    /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100vw;
+    /* Full width */
+    height: 100vh;
+    /* Full height */
+    overflow: auto;
+    /* Enable scroll if needed */
+    background-color: rgb(0, 0, 0);
+    /* Fallback color */
+    background-color: rgba(0, 0, 0, 0.4);
+    /* Black w/ opacity */
+}
+
+
 /* Modal Content */
+
 .modal-content {
     position: relative;
-  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     -webkit-animation-name: animateleft;
     -webkit-animation-duration: 0.8s;
     animation-name: animateleft;
-    animation-duration: 0.8s; 
+    animation-duration: 0.8s;
     border-radius: 0 !important;
     border: none !important;
 }
 
+
 /* Add Animation */
+
 @-webkit-keyframes animateleft {
-    from {left:100%; opacity:0} 
-    to {left:100%; opacity:1}
+    from {
+        left: 100%;
+        opacity: 0
+    }
+    to {
+        left: 100%;
+        opacity: 1
+    }
 }
 
 @keyframes animateleft {
-    from {left:100%; opacity:0}
-    to {left:0; opacity:1}
+    from {
+        left: 100%;
+        opacity: 0
+    }
+    to {
+        left: 0;
+        opacity: 1
+    }
 }
 
+
 /* The Close Button */
+
 .close {
     font-family: Arial, Helvetica, sans-serif;
     padding: 25px 30px;
@@ -46,7 +75,6 @@ body {font-family: "Roboto", Helvetica, sans-serif;}
     float: right;
     font-size: 28px;
     font-weight: bold;
-    
 }
 
 .close:hover,
@@ -55,72 +83,83 @@ body {font-family: "Roboto", Helvetica, sans-serif;}
     text-decoration: none;
     cursor: pointer;
     float: right;
-    
 }
 
 
 /* -------Modal Header--------- */
 
-#selected-movie-poster{
+#selected-movie-poster {
     margin: auto;
     height: 100%;
     width: 90%;
     max-width: 100%;
     overflow: hidden;
     background-size: cover;
-   }
-#movie-scroll{
+}
+
+#movie-scroll {
     width: 40vh;
     height: 90vh;
     overflow-y: scroll;
-    
 }
-#modal-movie-title{
- color:rgb(33, 33, 33);
- margin-top:50px;
- font-size: 40px;
- letter-spacing:4px;
+
+#modal-movie-title {
+    color: rgb(33, 33, 33);
+    margin-top: 50px;
+    font-size: 40px;
+    letter-spacing: 4px;
 }
-#modal-movie-info-box{
+
+#modal-movie-info-box {
     height: 100vh;
 }
-#YRG-box{
+
+#YRG-box {
     margin-top: 30px;
 }
-#raitings{
+
+#raitings {
     margin-top: 20px;
 }
-    .imdb-logo {
-        display: inline-block;
-    }
 
-    .imdb-text {
-        display: inline-block;
-    }
-
-    .roten-logo{
-        display: inline-block;
-    }
-
-    .roten-text{
-        display: inline-block;
-    }
-
-#director{
-    margin-top: 20px;  
-}
-#strong-text{
+.imdb-logo {
     display: inline-block;
 }
-#watched-movie-button{
-    height: 30px;
-}
-#watched-movie-button:hover{
-    opacity:0.5;
+
+.imdb-text {
+    display: inline-block;
 }
 
-#trailer-box{
+.roten-logo {
+    display: inline-block;
+}
+
+.roten-text {
+    display: inline-block;
+}
+
+#director {
+    margin-top: 20px;
+}
+
+#strong-text {
+    display: inline-block;
+}
+
+#watched-movie-button {
+    height: 30px;
+}
+
+#watched-movie-button:hover {
+    opacity: 0.5;
+}
+
+#trailer-box {
     margin-top: 20px;
     height: 300px;
     width: 500px;
+}
+
+#delete-movie-button {
+    height: 30px;
 }
