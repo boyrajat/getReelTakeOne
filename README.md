@@ -1,6 +1,38 @@
 # getReel
 A Full stack web application that serves as a personal media library to keep track of movies that you would like to watch as well as the ones that you have watched already.
-## Getting Started
+
+Direct link to app: https://pure-waters-38367.herokuapp.com
+
+## Home page 
+<img width="1346" alt="screen shot 2018-03-02 at 1 28 19 pm" src="https://user-images.githubusercontent.com/31390306/36915243-fff2e5f2-1e1d-11e8-8e1a-21493d66acdf.png">
+
+### Result:
+
+In this application we utilized the Open Movie Database (OMDb) API to implement a search for movie titles. Ultimately, getReel allows the user to keep a list of movies they want to watch. Once the movie is selected, a modal generates a brief description of the movie including; movie poster, genre, cast, director(s), year of release and ratings. We also utilized The Movie database API to add a trailer feature of the selected movie. The user has the option to keep the movie in the watchlist or mark the movie as “watched”. 
+
+## Movie general info 
+<img width="1347" alt="screen shot 2018-03-02 at 1 27 21 pm" src="https://user-images.githubusercontent.com/31390306/36915244-00008d10-1e1e-11e8-86ee-589262a79986.png">
+
+### Technologies used:
+
+Bootstrap 4 (Front-end framework)
+
+Cards, Modal
+
+Express.js (Server framework)
+
+Handlebars (Templating engine)
+
+Heroku (Cloud platform)
+
+JawsDB (Heroku database add-on)
+
+MySQL (RDBMS)
+
+Node.js (Javascript environment)
+
+Sequelize (ORM)
+
 
 ### Prerequisites
 - MySQL
@@ -19,16 +51,6 @@ If you would like to run the application locally, please ensure that you have th
 - Ensure that you are in the root project directory, then run `npm start`.
 - The application will be running at `localhost:3000/`
 
-## Built with
-- Bootstrap (Front-end framework)
-- Express.js (Server framework)
-- Handlebars (Templating engine)
-- Heroku (Cloud platform)
-- JawsDB (Heroku database add-on)
-- MySQL (RDBMS)
-- Node.js (Javascript environment)
-- Sequelize (ORM)
-- WebStorm (Javascript GUI)
 
 ## Author
 Raj Narula, Mariela Pascual, Ashley Calixte
