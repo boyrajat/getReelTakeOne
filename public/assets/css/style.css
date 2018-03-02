@@ -1,6 +1,7 @@
 @import url("modal.css");
 @import url("movie-box.css");
 @import url("watched-movies.css");
+
 /*
 -------HEADER------------------------------
 */
@@ -90,7 +91,6 @@
 */
 
 .footer {
-    
     bottom: 0;
     background: rgb(26, 26, 26);
     height: 50px;
@@ -105,22 +105,28 @@
     color: rgb(199, 198, 198);
     font-family: 'Roboto', sans-serif;
 }
-#sort-box{
- margin-top: 40px;
- margin-left: 50px;
+
+#sort-box {
+    margin-top: 40px;
+    margin-left: 50px;
 }
-    #sortYear-img {
-        height: 30px;
-    }
-    #sortYear-img:hover{
-        opacity: 0.5;
-    }
-    #sortRaiting-box{
-        margin-left: 30px;
-    }
-    #sortRaiting-img{
-        height: 30px;
-    }
-    #sortRaiting-img:hover{
-        opacity: 0.5;
-    }
+
+#sortYear-img {
+    height: 30px;
+}
+
+#sortYear-img:hover {
+    opacity: 0.5;
+}
+
+#sortRating-box {
+    margin-left: 30px;
+}
+
+#sortRating-img {
+    height: 30px;
+}
+
+#sortRating-img:hover {
+    opacity: 0.5;
+}
